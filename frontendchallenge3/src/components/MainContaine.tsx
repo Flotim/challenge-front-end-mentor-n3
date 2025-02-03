@@ -20,9 +20,11 @@ const MainContainer = () => {
         { index: "sat", value: 43.28 },
         { index: "sun", value: 25.48 }
     ];
+    const maxValue = Math.max(...barsData.map(item => item.value));
+
 
     return (
-        <div className="p-6 bg-[var(--very-pale-orange)] h-[440px] w-[400px] rounded-xl flex flex-col py-8 justify-between items-start">
+        <div className="px-8 bg-[var(--very-pale-orange)] h-fit w-fit rounded-xl flex flex-col py-8 justify-between items-start gap-5">
             <motion.h1
                 initial={{ opacity: 0, translateY: 100, rotateX: 90 }}
                 whileInView={{ opacity: 1, rotateX: 0, translateY: 0 }}
@@ -34,7 +36,7 @@ const MainContainer = () => {
 
             <div className="w-full h-fit pb-6 border-b-2 border-[var(--cream)] flex flex-row justify-center items-end">
                 {barsData.map(({ value, index }, i) => (
-                    <div key={index} className="flex flex-col items-center justify-center gap-1.5">
+                    <div key={index} className="flex flex-col h-[290px] items-center justify-end gap-1.5">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={activeIndex === i ? { opacity: 1 } : { scale: 0 }}
@@ -46,7 +48,7 @@ const MainContainer = () => {
 
                         <motion.div
                             initial={{ height: 0 }}
-                            animate={{ height: `calc(${value} * 2.9px)` }}
+                            animate={{ height: `calc(${(value / maxValue) * 100}%)` }} 
                             transition={{ duration: 1, ease: "easeOut" }}
                             onClick={() => setActiveIndex(i)}
                             className={`relative rounded-sm hover:bg-[var(--cream)] bg-[var(--soft-red)] transition duration-500 w-10 cursor-pointer overflow-hidden 

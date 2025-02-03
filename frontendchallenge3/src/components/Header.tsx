@@ -12,7 +12,7 @@ const Header = () => {
         setTimeout(() => setTotalAmount(921.48), 0);
     }, []);
     return (
-        <header className="px-5 bg-[var(--soft-red)] w-[400px] h-30 rounded-xl flex flex-row justify-between items-center">
+        <header className="px-5 bg-[var(--soft-red)] w-full h-30 rounded-xl flex flex-row justify-between items-center">
             <motion.div
                 initial={{ opacity: 0, translateY: 10 }}
                 whileInView={{ opacity: 1, translateY: 0 }}
