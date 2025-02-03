@@ -36,7 +36,7 @@ const MainContainer = () => {
 
             <div className="w-full h-fit pb-6 border-b-2 border-[var(--cream)] flex flex-row justify-center items-end">
                 {barsData.map(({ value, index }, i) => (
-                    <div key={index} className="flex flex-col h-[290px] items-center justify-end gap-1.5">
+                    <div key={index} className="flex flex-col h-[220px] items-center justify-end gap-1.5">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={activeIndex === i ? { opacity: 1 } : { scale: 0 }}
