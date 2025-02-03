@@ -66,12 +66,15 @@ const MainContainer = () => {
             </div>
 
             <div className="w-full flex flex-row justify-between items-end">
-                <div className="flex flex-col gap-2 justify-start items-start">
+                <motion.div
+                    initial={{ opacity: 0, translateX: -10 }}
+                    whileInView={{ opacity: 1, translateX: 0 }}
+                    transition={{ duration: 1 }} className="flex flex-col gap-2 justify-start items-start">
                     <h2 className="text-[var(--medium-brown)]">Total this month</h2>
                     <h1 className="flex flex-row font-semibold text-4xl text-[var(--dark-brown)]">
                         $<Highlight className="" trigger={totalAmount} duration={1500} />
                     </h1>
-                </div>
+                </motion.div>
                 <motion.div
                     initial={{ opacity: 0, translateX: 10 }}
                     whileInView={{ opacity: 1, translateX: 0 }}
